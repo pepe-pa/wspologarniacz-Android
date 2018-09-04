@@ -13,7 +13,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true //Add this
     }
     buildTypes {
         release {
@@ -36,7 +35,7 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.25.0"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    implementation 'androidx.core:core-ktx:0.3'
+    implementation "androidx.core:core-ktx:$androidXVersion"
 
     /*AndroidX*/
     implementation "androidx.appcompat:appcompat:$androidXVersion"
