@@ -29,6 +29,7 @@ dependencies {
     def androidConstraintLayout = "1.1.3"
     def daggerVersion = '2.16'
     def retrofitVersion = "2.4.0"
+    def androidTestVersion = "1.1.0-alpha4"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     /*kotlin*/
@@ -44,6 +45,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common:$androidArchitectureComponents"
     implementation "androidx.lifecycle:lifecycle-livedata:$androidArchitectureComponents"
     implementation "androidx.room:room-common:$androidArchitectureComponents"
+    implementation "com.android.support.constraint:constraint-layout:$androidConstraintLayout"
 
     /*retrofit*/
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -54,12 +56,12 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     /*test*/
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    androidTestImplementation "androidx.test:runner:$androidTestVersion"
+    androidTestImplementation "androidx.test:rules:$androidTestVersion"
 }
