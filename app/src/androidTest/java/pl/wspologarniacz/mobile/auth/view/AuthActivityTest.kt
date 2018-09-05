@@ -1,7 +1,7 @@
 package pl.wspologarniacz.mobile.auth.view
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -26,11 +26,10 @@ class AuthActivityTest {
         val email = "test@test.test"
         val username = "test"
 
-        onView(withId(R.id.email_input)).perform(typeText(email)).check(matches(withText(email)))
-        onView(withId(R.id.username_input)).perform(typeText(username)).check(matches(withText(username)))
-        onView(withId(R.id.password_input)).perform(typeText(password)).check(matches(withText(password)))
-        onView(withId(R.id.confirmPassword_input)).perform(typeText(password)).check(matches(withText(password)))
-        ViewActions.closeSoftKeyboard()
+        onView(withId(R.id.email_input)).perform(typeText(email), closeSoftKeyboard()).check(matches(withText(email)))
+        onView(withId(R.id.username_input)).perform(typeText(username), closeSoftKeyboard()).check(matches(withText(username)))
+        onView(withId(R.id.password_input)).perform(typeText(password), closeSoftKeyboard()).check(matches(withText(password)))
+        onView(withId(R.id.confirmPassword_input)).perform(typeText(password), closeSoftKeyboard()).check(matches(withText(password)))
     }
 
     @Test
