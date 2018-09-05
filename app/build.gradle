@@ -44,8 +44,9 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$androidConstraintLayout"
     implementation "androidx.lifecycle:lifecycle-common:$androidArchitectureComponents"
     implementation "androidx.lifecycle:lifecycle-livedata:$androidArchitectureComponents"
+    implementation "androidx.lifecycle:lifecycle-livedata:$androidArchitectureComponents"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidArchitectureComponents"
     implementation "androidx.room:room-common:$androidArchitectureComponents"
-    implementation "com.android.support.constraint:constraint-layout:$androidConstraintLayout"
 
     /*retrofit*/
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

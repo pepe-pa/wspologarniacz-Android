@@ -27,6 +27,6 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesRetrofit(converterFactory: Converter.Factory, okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().addCallAdapterFactory(CoroutineCallAdapterFactory()).addConverterFactory(converterFactory).baseUrl("").client(okHttpClient).build()
+        return Retrofit.Builder().addCallAdapterFactory(CoroutineCallAdapterFactory()).addConverterFactory(converterFactory).baseUrl("http://wspologarniacz-staging.herokuapp.com/").client(okHttpClient).build()
     }
 }
