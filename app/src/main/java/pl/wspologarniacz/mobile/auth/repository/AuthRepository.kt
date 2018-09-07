@@ -2,13 +2,10 @@ package pl.wspologarniacz.mobile.auth.repository
 
 import kotlinx.coroutines.experimental.launch
 import pl.wspologarniacz.mobile.auth.repository.model.User
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class AuthRepository @Inject constructor(
-        private val authApi: AuthApi
-) {
+class AuthRepository(private val authApi: AuthApi) {
 
     fun login(email: String, password: String) {
         launch {
@@ -16,11 +13,15 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    fun register(email: String, password: String) {
-
+    fun register(email: String, password: String, username: String) {
+        launch {
+            authApi.register(User(email, password, username))
+        }
     }
 
-    fun forgotPassword() {
-
+    fun forgotPassword(email: String) {
+        launch {
+            authApi.forgotPassword(User(email))
+        }
     }
 }
