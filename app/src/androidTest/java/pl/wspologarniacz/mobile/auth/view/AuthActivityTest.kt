@@ -1,8 +1,7 @@
 package pl.wspologarniacz.mobile.auth.view
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
-import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -40,5 +39,24 @@ class AuthActivityTest {
         onView(withId(R.id.action)).check(matches(withText(R.string.sign_up_text)))
     }
 
+    @Test
+    fun testActionChooserTextChange() {
+        onView(withId(R.id.action_chooser_text)).check(matches(withText(R.string.sign_in_chooser_text)))
+        onView(withId(R.id.action_chooser)).check(matches(withText(R.string.sign_in_text)))
 
+        onView(withId(R.id.action_chooser)).perform(click())
+
+        onView(withId(R.id.action_chooser)).check(matches(withText(R.string.sign_up_text)))
+        onView(withId(R.id.action_chooser_text)).check(matches(withText(R.string.sign_up_chooser_text)))
+
+        onView(withId(R.id.action_chooser)).perform(click())
+
+        onView(withId(R.id.action_chooser_text)).check(matches(withText(R.string.sign_in_chooser_text)))
+        onView(withId(R.id.action_chooser)).check(matches(withText(R.string.sign_in_text)))
+    }
+
+    @Test
+    fun testNavigation() {
+
+    }
 }
