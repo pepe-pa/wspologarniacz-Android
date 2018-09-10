@@ -2,9 +2,7 @@ package pl.wspologarniacz.mobile.auth.view
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.register_fragment.*
@@ -19,13 +17,8 @@ class RegisterFragment : AuthFragment() {
     override fun getLayoutRes() = R.layout.register_fragment
 
 
-    private fun openLoginScreen() {
-        activity?.let {
-            Navigation.findNavController(it, R.id.nav_host_fragment).navigate(R.id.action_registerFragment_to_loginFragment)
-        }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Done -> openLoginScreen()
@@ -34,18 +27,19 @@ class RegisterFragment : AuthFragment() {
                 is Idle -> Log.i("xd", "idle")
             }
         })
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
 
         action.setOnClickListener {
             viewModel.register(email_input.text.toString(),
                     password_input.text.toString(),
                     username_input.text.toString()
             )
+        }
+    }
+
+
+    private fun openLoginScreen() {
+        activity?.let {
+            Navigation.findNavController(it, R.id.nav_host_fragment).navigate(R.id.action_registerFragment_to_loginFragment)
         }
     }
 }

@@ -2,9 +2,7 @@ package pl.wspologarniacz.mobile.auth.view
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.login_fragment.*
@@ -19,7 +17,9 @@ class LoginFragment : AuthFragment() {
 
     override fun getLayoutRes() = R.layout.login_fragment
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Done -> Log.i("xd", "done")
@@ -28,12 +28,6 @@ class LoginFragment : AuthFragment() {
                 is Idle -> Log.i("xd", "idle")
             }
         })
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
 
         reset_password.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_resetPasswordFragment)
