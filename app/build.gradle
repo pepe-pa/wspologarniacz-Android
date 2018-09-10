@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -67,6 +71,7 @@ dependencies {
 
     /*test*/
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.15.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     androidTestImplementation "androidx.test:runner:$androidTestVersion"
     androidTestImplementation "androidx.test:rules:$androidTestVersion"

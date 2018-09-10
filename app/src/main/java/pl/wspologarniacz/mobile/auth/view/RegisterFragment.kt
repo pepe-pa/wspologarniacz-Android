@@ -14,6 +14,8 @@ import pl.wspologarniacz.mobile.common.repository.model.InProgress
 
 class RegisterFragment : AuthFragment() {
 
+    private val TAG = "RegisterFragment"
+
     override fun getLayoutRes() = R.layout.register_fragment
 
 
@@ -22,9 +24,9 @@ class RegisterFragment : AuthFragment() {
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Done -> openLoginScreen()
-                is Error -> Log.i("xd", "error ${it.throwable.localizedMessage}")
-                is InProgress -> Log.i("xd", "inprogress")
-                is Idle -> Log.i("xd", "idle")
+                is Error -> Log.i(TAG, "error ${it.throwable.localizedMessage}")
+                is InProgress -> Log.i(TAG, "inprogress")
+                is Idle -> Log.i(TAG, "idle")
             }
         })
 

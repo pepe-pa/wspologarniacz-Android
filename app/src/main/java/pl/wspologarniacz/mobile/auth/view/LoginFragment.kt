@@ -14,6 +14,7 @@ import pl.wspologarniacz.mobile.common.repository.model.InProgress
 
 class LoginFragment : AuthFragment() {
 
+    private val TAG = "LoginFragment"
 
     override fun getLayoutRes() = R.layout.login_fragment
 
@@ -22,10 +23,10 @@ class LoginFragment : AuthFragment() {
 
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is Done -> Log.i("xd", "done")
-                is Error -> Log.i("xd", "error")
-                is InProgress -> Log.i("xd", "inprogress")
-                is Idle -> Log.i("xd", "idle")
+                is Done -> Log.i(TAG, "done")
+                is Error -> Log.i(TAG, "error")
+                is InProgress -> Log.i(TAG, "inprogress")
+                is Idle -> Log.i(TAG, "idle")
             }
         })
 
