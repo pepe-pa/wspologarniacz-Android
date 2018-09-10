@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.experimental.launch
 import pl.wspologarniacz.mobile.auth.repository.model.User
 import pl.wspologarniacz.mobile.common.repository.model.*
-import pl.wspologarniacz.mobile.common.utils.asyncSafe
+import pl.wspologarniacz.mobile.common.utils.asyncResult
 import javax.inject.Singleton
 
 @Singleton
@@ -20,11 +20,10 @@ class AuthRepository(private val authApi: AuthApi) {
     fun login(email: String, password: String) {
         loadState.inProgress()
         launch {
-            val token = authApi.login(User(email, password)).asyncSafe()
-            token.data?.run {
-                Log.i(TAG, "Token ${this.token}")
+            authApi.login(User(email, password)).asyncResult(loadState::error) {
+                Log.i(TAG, "Token ${this}")
                 loadState.done()
-            } ?: loadState.error(token.error)
+            }
         }
 
     }
@@ -32,18 +31,18 @@ class AuthRepository(private val authApi: AuthApi) {
     fun register(email: String, password: String, username: String) {
         loadState.inProgress()
         launch {
-            val result = authApi.register(User(email, password, username)).asyncSafe()
-            if (result.isSucessfull()) {
+            authApi.register(User(email, password, username)).asyncResult(loadState::error) {
                 loadState.done()
-            } else {
-                loadState.error(result.error)
             }
         }
     }
 
     fun forgotPassword(email: String) {
+        loadState.inProgress()
         launch {
-            authApi.forgotPassword(User(email))
+            authApi.forgotPassword(User(email)).asyncResult(loadState::error) {
+                loadState.done()
+            }
         }
     }
 

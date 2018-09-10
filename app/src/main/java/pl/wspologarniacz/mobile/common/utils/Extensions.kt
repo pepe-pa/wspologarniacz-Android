@@ -2,7 +2,6 @@ package pl.wspologarniacz.mobile.common.utils
 
 import android.view.View
 import kotlinx.coroutines.experimental.Deferred
-import pl.wspologarniacz.mobile.common.repository.model.Result
 
 fun View.show() {
     visibility = View.VISIBLE
@@ -12,10 +11,15 @@ fun View.hide(visibilityLevel: Int = View.GONE) {
     visibility = visibilityLevel
 }
 
-suspend fun <T> Deferred<T>.asyncSafe(): Result<T> {
+suspend fun <T> Deferred<T>.asyncResult(error: (Throwable) -> Unit = {}, success: (T) -> Unit = {}): T? {
     return try {
-        Result(data = await())
+        val data = await()
+        success(data)
+
+        data
     } catch (e: Exception) {
-        Result(error = e)
+        error(e)
+        null
     }
 }
+
