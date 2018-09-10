@@ -12,8 +12,9 @@ abstract class AuthFragment : Fragment() {
 
     protected lateinit var viewModel: AuthViewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         activity?.run {
             viewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
         }
