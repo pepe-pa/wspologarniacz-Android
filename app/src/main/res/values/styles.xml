@@ -9,4 +9,23 @@
         <item name="android:fontFamily">@font/quicksand</item>
     </style>
 
+    <style name="ColoredButton">
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Header" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AuthInputField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">@dimen/margin_l</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
 </resources>

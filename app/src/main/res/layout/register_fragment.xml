@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/margin_l"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_l">
 
     <TextView
         android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_l"
+        style="@style/Header"
         android:text="@string/sign_up_text"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
+        style="@style/AuthInputField"
         android:hint="@string/email"
         app:layout_constraintTop_toBottomOf="@id/header">
 
@@ -34,9 +28,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_m"
+        style="@style/AuthInputField"
         android:hint="@string/username"
         app:layout_constraintTop_toBottomOf="@id/email">
 
@@ -49,25 +41,22 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_m"
+        style="@style/AuthInputField"
         android:hint="@string/password"
         app:layout_constraintTop_toBottomOf="@id/username"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password_input"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/confirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/AuthInputField"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/password">
@@ -81,26 +70,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
-        android:id="@+id/reset_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_m"
-        android:text="@string/reset_password_text"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/confirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ColoredButton"
         android:layout_marginTop="@dimen/margin_l"
         android:text="@string/sign_up_text"
-        app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reset_password" />
+        app:layout_constraintTop_toBottomOf="@id/confirmPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
