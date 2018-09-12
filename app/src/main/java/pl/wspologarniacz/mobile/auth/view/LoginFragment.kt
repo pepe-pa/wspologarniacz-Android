@@ -1,5 +1,6 @@
 package pl.wspologarniacz.mobile.auth.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +12,7 @@ import pl.wspologarniacz.mobile.common.repository.model.Done
 import pl.wspologarniacz.mobile.common.repository.model.Error
 import pl.wspologarniacz.mobile.common.repository.model.Idle
 import pl.wspologarniacz.mobile.common.repository.model.InProgress
+import pl.wspologarniacz.mobile.main.view.MainActivity
 
 class LoginFragment : AuthFragment() {
 
@@ -23,7 +25,7 @@ class LoginFragment : AuthFragment() {
 
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
-                is Done -> Log.i(TAG, "done")
+                is Done -> openMainActivity()
                 is Error -> Log.i(TAG, "error")
                 is InProgress -> Log.i(TAG, "inprogress")
                 is Idle -> Log.i(TAG, "idle")
@@ -37,6 +39,10 @@ class LoginFragment : AuthFragment() {
         action.setOnClickListener {
             viewModel.login(email_input.text.toString(), password_input.text.toString())
         }
+    }
+
+    private fun openMainActivity() {
+        startActivity(Intent(context, MainActivity::class.java))
     }
 
 

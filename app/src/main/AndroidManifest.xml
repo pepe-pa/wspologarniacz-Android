@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:name=".WspolorganiaczApp"
         android:allowBackup="true"
@@ -22,9 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".main.view.MainActivity"
+            android:label="@string/title_activity_main"></activity>
     </application>
 
 </manifest>
