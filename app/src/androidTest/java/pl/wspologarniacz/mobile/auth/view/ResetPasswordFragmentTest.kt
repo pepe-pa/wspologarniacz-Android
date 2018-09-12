@@ -58,7 +58,7 @@ class ResetPasswordFragmentTest {
         onView(withId(R.id.email)).check(matches(ViewMatchers.isDisplayed()))
 
         //clean up
-        Navigation.findNavController(activityRule.activity, R.id.nav_host_fragment).navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+        onView(withId(R.id.reset_password)).perform(click())
 
     }
 
