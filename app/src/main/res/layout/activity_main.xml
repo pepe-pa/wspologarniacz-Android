@@ -26,8 +26,6 @@
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
         <androidx.viewpager.widget.ViewPager
 
             app:layout_behavior="@string/appbar_scrolling_view_behavior"

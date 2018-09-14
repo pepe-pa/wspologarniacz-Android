@@ -11,7 +11,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
 
 
     override fun getItem(position: Int): Fragment {
-        return fragmentCache[position] ?: getFragment(position).apply {
+        return fragmentCache[position] ?: getFragmentInstance(position).apply {
             fragmentCache[position] = this
         }
     }
@@ -22,7 +22,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
         return position.toString()
     }
 
-    private fun getFragment(position: Int) = when (position) {
+    private fun getFragmentInstance(position: Int) = when (position) {
         0 -> GroupFragment()
         1 -> Fragment()
         2 -> GroupFragment()
