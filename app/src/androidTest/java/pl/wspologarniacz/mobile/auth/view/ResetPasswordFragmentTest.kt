@@ -58,14 +58,13 @@ class ResetPasswordFragmentTest {
         onView(withId(R.id.email)).check(matches(ViewMatchers.isDisplayed()))
 
         //clean up
-        Navigation.findNavController(activityRule.activity, R.id.nav_host_fragment).navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+        onView(withId(R.id.reset_password)).perform(click())
 
     }
 
     private fun openResetPasswordFromRegisterFragment() {
-
-        Navigation.findNavController(activityRule.activity, R.id.nav_host_fragment).navigate(R.id.action_registerFragment_to_loginFragment)
-        Navigation.findNavController(activityRule.activity, R.id.nav_host_fragment).navigate(R.id.action_loginFragment_to_resetPasswordFragment)
+        onView(withId(R.id.action_chooser)).perform(click())
+        onView(withId(R.id.reset_password)).perform(click())
     }
 
 }
