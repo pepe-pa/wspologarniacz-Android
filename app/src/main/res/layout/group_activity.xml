@@ -28,6 +28,8 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/fab_padding_size"
         app:spanCount="2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/ic_add"
         android:layout_margin="@dimen/margin_l" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

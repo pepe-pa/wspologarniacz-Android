@@ -5,4 +5,5 @@
     <dimen name="margin_s">4dp</dimen>
     <dimen name="text_size_button">14sp</dimen>
     <dimen name="corner_radius_button">18dp</dimen>
+    <dimen name="fab_padding_size">72dp</dimen>
 </resources>

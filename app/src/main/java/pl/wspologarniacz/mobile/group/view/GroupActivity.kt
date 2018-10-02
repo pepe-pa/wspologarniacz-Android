@@ -1,6 +1,7 @@
 package pl.wspologarniacz.mobile.group.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionManager
@@ -23,7 +24,15 @@ class GroupActivity : DaggerAppCompatActivity() {
     }
 
 
-    private val groupsAdapter by lazy { GroupsAdapter() }
+    private val groupsAdapter by lazy {
+        GroupsAdapter {
+            onGroupItemClicked(it)
+        }
+    }
+
+    private fun onGroupItemClicked(group: Group) {
+        Toast.makeText(this, group.toString(), Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +42,12 @@ class GroupActivity : DaggerAppCompatActivity() {
 
         groupAction.setOnClickListener {
             TransitionManager.beginDelayedTransition(rootLayout)
-            if (groupAction.size == FloatingActionButton.SIZE_NORMAL) {
-                groupAction.size = FloatingActionButton.SIZE_MINI
-            } else {
+            if (groupAction.size == FloatingActionButton.SIZE_MINI) {
+                groupAction.setImageResource(R.drawable.ic_add)
                 groupAction.size = FloatingActionButton.SIZE_NORMAL
+            } else {
+                groupAction.setImageResource(R.drawable.ic_close)
+                groupAction.size = FloatingActionButton.SIZE_MINI
             }
         }
 
