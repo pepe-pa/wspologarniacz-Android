@@ -7,7 +7,7 @@ import pl.wspologarniacz.mobile.group.repository.GroupRepository
 import pl.wspologarniacz.mobile.group.viewmodel.GroupViewModel
 
 @Module
-class GroupFragmentModule {
+class GroupActivityModule {
 
     @Provides
     fun groupRepository() = GroupRepository()

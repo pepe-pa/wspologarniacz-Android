@@ -3,7 +3,6 @@ package pl.wspologarniacz.mobile.main.view
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import pl.wspologarniacz.mobile.group.view.GroupFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager) :
         FragmentStatePagerAdapter(fragmentManager) {
@@ -23,9 +22,9 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
     }
 
     private fun getFragmentInstance(position: Int) = when (position) {
-        0 -> GroupFragment()
+        0 -> Fragment()
         1 -> Fragment()
-        2 -> GroupFragment()
+        2 -> Fragment()
         else -> Fragment()
     }
 }
