@@ -12,7 +12,7 @@ import pl.wspologarniacz.mobile.common.repository.model.Done
 import pl.wspologarniacz.mobile.common.repository.model.Error
 import pl.wspologarniacz.mobile.common.repository.model.Idle
 import pl.wspologarniacz.mobile.common.repository.model.InProgress
-import pl.wspologarniacz.mobile.main.view.MainActivity
+import pl.wspologarniacz.mobile.group.view.GroupActivity
 
 class LoginFragment : AuthFragment() {
 
@@ -42,7 +42,7 @@ class LoginFragment : AuthFragment() {
     }
 
     private fun openMainActivity() {
-        startActivity(Intent(context, MainActivity::class.java))
+        startActivity(Intent(context, GroupActivity::class.java))
     }
 
 
