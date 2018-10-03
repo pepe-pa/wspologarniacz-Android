@@ -1,7 +1,7 @@
 package pl.wspologarniacz.mobile.group.view
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionManager
@@ -12,6 +12,7 @@ import pl.wspologarniacz.mobile.R
 import pl.wspologarniacz.mobile.common.viewmodel.ViewModelFactory
 import pl.wspologarniacz.mobile.group.repository.model.Group
 import pl.wspologarniacz.mobile.group.viewmodel.GroupViewModel
+import pl.wspologarniacz.mobile.main.view.MainActivity
 import javax.inject.Inject
 
 class GroupActivity : DaggerAppCompatActivity() {
@@ -31,7 +32,10 @@ class GroupActivity : DaggerAppCompatActivity() {
     }
 
     private fun onGroupItemClicked(group: Group) {
-        Toast.makeText(this, group.toString(), Toast.LENGTH_SHORT).show()
+        with(Intent(this, MainActivity::class.java)) {
+            startActivity(this)
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,20 +53,23 @@ class GroupActivity : DaggerAppCompatActivity() {
                 groupAction.setImageResource(R.drawable.ic_close)
                 groupAction.size = FloatingActionButton.SIZE_MINI
             }
+
         }
 
-        groupsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                appBar.elevation = if (groupsRecyclerView.canScrollVertically(-1)) {
-                    resources.getDimensionPixelSize(R.dimen.design_appbar_elevation).toFloat()
-                } else {
-                    0F
-                }
-            }
+
+        groupsRecyclerView.addOnScrollListener(
+                object : RecyclerView.OnScrollListener() {
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        super.onScrolled(recyclerView, dx, dy)
+                        appBar.elevation = if (groupsRecyclerView.canScrollVertically(-1)) {
+                            resources.getDimensionPixelSize(R.dimen.design_appbar_elevation).toFloat()
+                        } else {
+                            0F
+                        }
+                    }
 
 
-        })
+                })
 
         groupsAdapter.submitList(listOf(
                 Group(1, "Grupa A"),
