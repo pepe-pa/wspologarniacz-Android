@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="baseTextWhite">@android:color/white</color>
+    <color name="baseTextBlack">@android:color/primary_text_light</color>
+    <color name="member_color">#4CAF50</color>
+    <color name="member_invite_color">#03A9F4</color>
+    <color name="member_waiting_color">#FFEB3B</color>
 </resources>

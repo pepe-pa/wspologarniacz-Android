@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
         adapter.setupTabIcons(tabLayout)
+
+        toolbar.title = "Group 11"
     }
 
 }
