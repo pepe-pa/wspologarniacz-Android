@@ -8,13 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.members_fragment.*
 import pl.wspologarniacz.mobile.R
-import pl.wspologarniacz.mobile.members.repository.model.Member
-import pl.wspologarniacz.mobile.members.repository.model.MemberStatus
+import pl.wspologarniacz.mobile.common.viewmodel.ViewModelFactory
+import pl.wspologarniacz.mobile.members.viewmodel.MembersListViewModel
+import javax.inject.Inject
 
-class MembersFragment : Fragment() {
+class MembersFragment : DaggerFragment() {
+
+    @Inject
+    lateinit var factory: ViewModelFactory<MembersListViewModel>
+
+    private val viewModel by lazy {
+        ViewModelProviders.of(this, factory)[MembersListViewModel::class.java]
+    }
 
     private val adapter by lazy { MembersAdapter() }
 
@@ -30,13 +40,11 @@ class MembersFragment : Fragment() {
 
         members.adapter = adapter
 
-        adapter.submitList(listOf(
-                Member("https://api.adorable.io/avatars/285/12.png", "Marcelo", MemberStatus.MEMBER),
-                Member("https://api.adorable.io/avatars/285/4.png", "Sergio Ramos", MemberStatus.PENDING_INVITATION),
-                Member("https://api.adorable.io/avatars/285/2.png", "Dani Carvajal", MemberStatus.WAITING_FOR_ACCEPTANCE),
-                Member("https://api.adorable.io/avatars/285/5.png", "Varane", MemberStatus.MEMBER),
-                Member("https://api.adorable.io/avatars/285/6.png", "Nacho", MemberStatus.MEMBER)
-        ))
+        viewModel.groupMembers.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
+
+
 
         addPeople.setOnClickListener {
             val activity = activity as AppCompatActivity

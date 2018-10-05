@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.login_fragment.*
@@ -22,6 +23,9 @@ class LoginFragment : AuthFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        email_input.setText("user1@mail.com", TextView.BufferType.NORMAL)
+        password_input.setText("password", TextView.BufferType.NORMAL)
 
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
