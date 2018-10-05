@@ -2,9 +2,19 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <FrameLayout
+        android:id="@+id/revealLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:background="@color/colorPrimary" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/members"
         android:layout_width="match_parent"
@@ -21,4 +31,6 @@
         android:layout_gravity="bottom|end"
         android:src="@drawable/ic_add"
         android:layout_margin="@dimen/margin_l" />
+
+
 </FrameLayout>

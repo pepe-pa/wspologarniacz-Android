@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         adapter.setupTabIcons(tabLayout)
 
         toolbar.title = "Group 11"
+
     }
 
 }

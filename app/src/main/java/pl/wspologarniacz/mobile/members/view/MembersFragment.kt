@@ -1,9 +1,13 @@
 package pl.wspologarniacz.mobile.members.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.transition.Slide
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.members_fragment.*
 import pl.wspologarniacz.mobile.R
@@ -20,6 +24,10 @@ class MembersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val vg = view as ViewGroup
+        vg.clipChildren = false
+        vg.clipToPadding = false
+
         members.adapter = adapter
 
         adapter.submitList(listOf(
@@ -27,9 +35,20 @@ class MembersFragment : Fragment() {
                 Member("https://api.adorable.io/avatars/285/4.png", "Sergio Ramos", MemberStatus.PENDING_INVITATION),
                 Member("https://api.adorable.io/avatars/285/2.png", "Dani Carvajal", MemberStatus.WAITING_FOR_ACCEPTANCE),
                 Member("https://api.adorable.io/avatars/285/5.png", "Varane", MemberStatus.MEMBER),
-                Member("https://api.adorable.io/avatars/285/6.png", "Nacho", MemberStatus.MEMBER),
-                Member("https://api.adorable.io/avatars/285/19.png", "Odriozola", MemberStatus.INVITE)
+                Member("https://api.adorable.io/avatars/285/6.png", "Nacho", MemberStatus.MEMBER)
         ))
+
+        addPeople.setOnClickListener {
+            val activity = activity as AppCompatActivity
+            activity.window?.run {
+
+                enterTransition = Slide()
+            }
+            startActivity(Intent(context, MembersSearchActivity::class.java),
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle())
+        }
+
+
 
     }
 }

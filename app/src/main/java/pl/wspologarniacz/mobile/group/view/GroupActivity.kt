@@ -3,12 +3,12 @@ package pl.wspologarniacz.mobile.group.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.TransitionManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.group_activity.*
 import pl.wspologarniacz.mobile.R
+import pl.wspologarniacz.mobile.common.utils.setupDynamicShadowWhenScroll
 import pl.wspologarniacz.mobile.common.viewmodel.ViewModelFactory
 import pl.wspologarniacz.mobile.group.repository.model.Group
 import pl.wspologarniacz.mobile.group.viewmodel.GroupViewModel
@@ -57,19 +57,7 @@ class GroupActivity : DaggerAppCompatActivity() {
         }
 
 
-        groupsRecyclerView.addOnScrollListener(
-                object : RecyclerView.OnScrollListener() {
-                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        super.onScrolled(recyclerView, dx, dy)
-                        appBar.elevation = if (groupsRecyclerView.canScrollVertically(-1)) {
-                            resources.getDimensionPixelSize(R.dimen.design_appbar_elevation).toFloat()
-                        } else {
-                            0F
-                        }
-                    }
-
-
-                })
+        appBar.setupDynamicShadowWhenScroll(groupsRecyclerView)
 
         groupsAdapter.submitList(listOf(
                 Group(1, "Grupa A"),

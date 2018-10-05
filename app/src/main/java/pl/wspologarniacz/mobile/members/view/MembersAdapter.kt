@@ -13,7 +13,8 @@ import pl.wspologarniacz.mobile.common.utils.inflate
 import pl.wspologarniacz.mobile.common.utils.load
 import pl.wspologarniacz.mobile.members.repository.model.Member
 
-class MembersAdapter : ListAdapter<Member, MembersAdapter.MemberViewHolder>(MemberDiffCallback) {
+class MembersAdapter(val onClick: (Member) -> Unit = {}) :
+        ListAdapter<Member, MembersAdapter.MemberViewHolder>(MemberDiffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemberViewHolder {
@@ -27,6 +28,12 @@ class MembersAdapter : ListAdapter<Member, MembersAdapter.MemberViewHolder>(Memb
 
     inner class MemberViewHolder(override val containerView: View) :
             RecyclerView.ViewHolder(containerView), LayoutContainer {
+
+        init {
+            containerView.setOnClickListener {
+                onClick(getItem(layoutPosition))
+            }
+        }
 
         fun bind(member: Member) {
             avatar.load(member.avatar, RequestOptions.circleCropTransform())
