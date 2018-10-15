@@ -3,9 +3,10 @@ package pl.wspologarniacz.mobile.members.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import pl.wspologarniacz.mobile.group.repository.GroupRepository
 import pl.wspologarniacz.mobile.members.repository.model.Member
 
-class MembersSearchViewModel : ViewModel() {
+class MembersSearchViewModel(val groupRepository: GroupRepository) : ViewModel() {
 
     private val searchQueryLiveData = MutableLiveData<String>().apply { "" }
     val searchedMembers = Transformations.map(searchQueryLiveData) {
@@ -21,5 +22,9 @@ class MembersSearchViewModel : ViewModel() {
 
     fun search(user: String) {
         searchQueryLiveData.value = user
+    }
+
+    fun invite(groupId: Long, member: Member) {
+        groupRepository.invite(groupId, member.id)
     }
 }

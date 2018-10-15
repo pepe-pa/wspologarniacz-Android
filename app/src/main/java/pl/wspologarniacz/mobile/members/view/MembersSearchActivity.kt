@@ -12,10 +12,16 @@ import pl.wspologarniacz.mobile.common.utils.hideKeyboard
 import pl.wspologarniacz.mobile.common.utils.onTextChanged
 import pl.wspologarniacz.mobile.common.utils.setupDynamicShadowWhenScroll
 import pl.wspologarniacz.mobile.common.viewmodel.ViewModelFactory
+import pl.wspologarniacz.mobile.members.repository.model.Member
 import pl.wspologarniacz.mobile.members.viewmodel.MembersSearchViewModel
 import javax.inject.Inject
 
 class MembersSearchActivity : DaggerAppCompatActivity() {
+
+    companion object {
+        const val GROUP_PARAM = "group_param_extra"
+    }
+
 
     @Inject
     lateinit var factory: ViewModelFactory<MembersSearchViewModel>
@@ -24,7 +30,16 @@ class MembersSearchActivity : DaggerAppCompatActivity() {
         ViewModelProviders.of(this, factory)[MembersSearchViewModel::class.java]
     }
 
-    private val adapter by lazy { MembersAdapter() }
+    private val adapter by lazy {
+        MembersAdapter {
+            onMemberSelected(it)
+        }
+    }
+
+    private val groupId: Long by lazy {
+        /*found a methdo to do this*/
+        intent?.extras?.getLong(GROUP_PARAM) ?: 0L
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,5 +66,9 @@ class MembersSearchActivity : DaggerAppCompatActivity() {
 
             return@setOnEditorActionListener false
         }
+    }
+
+    private fun onMemberSelected(member: Member) {
+        viewModel.invite(groupId, member)
     }
 }

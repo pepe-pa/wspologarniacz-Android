@@ -19,6 +19,7 @@ import javax.inject.Inject
 
 class MembersFragment : DaggerFragment() {
 
+
     @Inject
     lateinit var factory: ViewModelFactory<MembersListViewModel>
 
@@ -27,6 +28,7 @@ class MembersFragment : DaggerFragment() {
     }
 
     private val adapter by lazy { MembersAdapter() }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.members_fragment, container, false)
@@ -48,12 +50,14 @@ class MembersFragment : DaggerFragment() {
 
         addPeople.setOnClickListener {
             val activity = activity as AppCompatActivity
-            activity.window?.run {
+            val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle()
+            bundle?.putLong(MembersSearchActivity.GROUP_PARAM, 0/*for now*/)
 
+            activity.window?.run {
                 enterTransition = Slide()
             }
-            startActivity(Intent(context, MembersSearchActivity::class.java),
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle())
+
+            startActivity(Intent(context, MembersSearchActivity::class.java), bundle)
         }
 
 
