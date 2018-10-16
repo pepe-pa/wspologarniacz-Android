@@ -2,7 +2,10 @@ package pl.wspologarniacz.mobile.common.utils
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.text.Editable
+import android.text.Html
+import android.text.Spanned
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -23,9 +26,17 @@ fun View.hide(visibilityLevel: Int = View.GONE) {
     visibility = visibilityLevel
 }
 
-@androidx.annotation.LayoutRes
+
 fun Int.inflate(parent: ViewGroup): View {
     return LayoutInflater.from(parent.context).inflate(this, parent, false)
+}
+
+fun String.fromHtml(): Spanned? {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(this, 0)
+    } else {
+        Html.fromHtml(this)
+    }
 }
 
 suspend fun <T> Deferred<T>.asyncResult(error: (Throwable) -> Unit = {}, success: (T) -> Unit = {}): T? {

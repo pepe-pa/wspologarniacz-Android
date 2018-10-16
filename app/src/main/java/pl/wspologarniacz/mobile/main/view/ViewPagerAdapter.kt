@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.android.material.tabs.TabLayout
 import pl.wspologarniacz.mobile.R
 import pl.wspologarniacz.mobile.members.view.MembersFragment
+import pl.wspologarniacz.mobile.tasks.view.TaskListFragment
 
 class ViewPagerAdapter(fragmentManager: FragmentManager) :
         FragmentStatePagerAdapter(fragmentManager) {
@@ -30,7 +31,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
 
     private fun getFragmentInstance(position: Int) = when (position) {
         0 -> MembersFragment()
-        1 -> Fragment()
+        1 -> TaskListFragment()
         2 -> Fragment()
         else -> Fragment()
     }
