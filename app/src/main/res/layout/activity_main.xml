@@ -5,15 +5,16 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:liftOnScroll="true">
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
-
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways" />
+            android:background="@android:color/white" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
@@ -26,11 +27,13 @@
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.viewpager.widget.ViewPager
-
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <androidx.viewpager.widget.ViewPager
+        android:background="@android:color/white"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

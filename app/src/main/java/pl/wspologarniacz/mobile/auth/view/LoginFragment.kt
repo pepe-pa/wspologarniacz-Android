@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.login_fragment.*
@@ -12,7 +13,7 @@ import pl.wspologarniacz.mobile.common.repository.model.Done
 import pl.wspologarniacz.mobile.common.repository.model.Error
 import pl.wspologarniacz.mobile.common.repository.model.Idle
 import pl.wspologarniacz.mobile.common.repository.model.InProgress
-import pl.wspologarniacz.mobile.main.view.MainActivity
+import pl.wspologarniacz.mobile.group.view.GroupActivity
 
 class LoginFragment : AuthFragment() {
 
@@ -22,6 +23,9 @@ class LoginFragment : AuthFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        email_input.setText("user1@mail.com", TextView.BufferType.NORMAL)
+        password_input.setText("password", TextView.BufferType.NORMAL)
 
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
@@ -42,7 +46,7 @@ class LoginFragment : AuthFragment() {
     }
 
     private fun openMainActivity() {
-        startActivity(Intent(context, MainActivity::class.java))
+        startActivity(Intent(context, GroupActivity::class.java))
     }
 
 

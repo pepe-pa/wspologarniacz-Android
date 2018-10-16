@@ -2,15 +2,12 @@ package pl.wspologarniacz.mobile.main.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import pl.wspologarniacz.mobile.group.di.GroupFragmentModule
-import pl.wspologarniacz.mobile.group.di.GroupScope
-import pl.wspologarniacz.mobile.group.view.GroupFragment
+import pl.wspologarniacz.mobile.members.di.MembersListModule
+import pl.wspologarniacz.mobile.members.view.MembersFragment
 
 @Module
 abstract class MainActivityModule {
 
-
-    @ContributesAndroidInjector(modules = [GroupFragmentModule::class])
-    @GroupScope
-    abstract fun groupFragment(): GroupFragment
+    @ContributesAndroidInjector(modules = [MembersListModule::class])
+    abstract fun membersFragment(): MembersFragment
 }

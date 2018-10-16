@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootLayout">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/groupsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/fab_padding_size"
+        app:spanCount="2" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/groupAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/ic_add"
+        android:layout_margin="@dimen/margin_l" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -12,4 +12,9 @@
     <string name="confirm_password">Potwierdź hasło</string>
     <string name="reset_password_text">Przypomnij hasło</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="invite_to_group_text">Zaproś do grupy</string>
+    <string name="member_text">W GRUPIE</string>
+    <string name="invite_text">ZAPROŚ</string>
+    <string name="member_waiting_text">OCZEKUJE \nNA PRZYJECIE</string>
+    <string name="member_pending_text">WYSLANO \nZAPROSZENIE</string>
 </resources>
