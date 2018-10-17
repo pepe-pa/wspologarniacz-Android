@@ -7,7 +7,7 @@
     android:padding="@dimen/margin_m">
 
     <ImageView
-        android:id="@+id/status"
+        android:id="@+id/next"
         android:layout_width="@dimen/avatar_size"
         android:layout_height="@dimen/avatar_size"
         android:scaleType="centerCrop"
@@ -17,22 +17,6 @@
         tools:srcCompat="@tools:sample/avatars"
         app:layout_constraintVertical_bias="0.5" />
 
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_l"
-        android:layout_marginEnd="@dimen/margin_m"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/status"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:text="@tools:sample/lorem/random" />
-
-
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
@@ -40,10 +24,21 @@
         android:layout_marginStart="@dimen/margin_l"
         android:layout_marginTop="@dimen/margin_m"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/description"
-        app:layout_constraintStart_toEndOf="@+id/status"
+        app:layout_constraintEnd_toEndOf="@+id/users"
+        app:layout_constraintStart_toEndOf="@+id/next"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@tools:sample/lorem" />
+
+    <LinearLayout
+        android:id="@+id/users"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/schedule_users_height"
+        android:layout_marginStart="@dimen/margin_l"
+        android:layout_marginEnd="@dimen/margin_m"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/next"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
         android:id="@+id/modified"
@@ -55,7 +50,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/users"
         tools:text="Zmodyfikowane wczoraj przez Mariano" />
 
 
@@ -65,6 +60,6 @@
         android:layout_height="0.5dp"
         android:background="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/status" />
+        app:layout_constraintStart_toEndOf="@+id/next" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
