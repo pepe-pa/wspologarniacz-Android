@@ -30,7 +30,7 @@ class LoginFragment : AuthFragment() {
         viewModel.loadingState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Done -> openMainActivity()
-                is Error -> Log.i(TAG, "error")
+                is Error -> Log.i(TAG, "error ${it.throwable.localizedMessage}")
                 is InProgress -> Log.i(TAG, "inprogress")
                 is Idle -> Log.i(TAG, "idle")
             }
