@@ -17,4 +17,5 @@
     <string name="invite_text">ZAPROŚ</string>
     <string name="member_waiting_text">OCZEKUJE \nNA PRZYJECIE</string>
     <string name="member_pending_text">WYSLANO \nZAPROSZENIE</string>
+    <string name="modified_format_text">Zmodyfikowano %1$s przez &lt;b>%2$s&lt;/b></string>
 </resources>
