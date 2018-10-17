@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.task_list_fragment_layout.*
+import kotlinx.android.synthetic.main.swipe_refresh_recycler_view_layout.*
 import pl.wspologarniacz.mobile.R
 import pl.wspologarniacz.mobile.common.viewmodel.ViewModelFactory
 import pl.wspologarniacz.mobile.tasks.viewmodel.TaskListViewModel
@@ -27,12 +27,12 @@ class TaskListFragment : DaggerFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.task_list_fragment_layout, container, false)
+        return inflater.inflate(R.layout.swipe_refresh_recycler_view_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        taskListRecyclerView.adapter = adapter
+        recyclerView.adapter = adapter
         viewModel.tasks.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
