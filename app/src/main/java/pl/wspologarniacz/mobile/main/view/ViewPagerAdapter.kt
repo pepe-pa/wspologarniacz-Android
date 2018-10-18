@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.android.material.tabs.TabLayout
 import pl.wspologarniacz.mobile.R
 import pl.wspologarniacz.mobile.members.view.MembersFragment
+import pl.wspologarniacz.mobile.ranking.view.RankingListFragment
 import pl.wspologarniacz.mobile.schedule.view.ScheduleFragment
 import pl.wspologarniacz.mobile.tasks.view.TaskListFragment
 
@@ -34,6 +35,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) :
         0 -> MembersFragment()
         1 -> TaskListFragment()
         2 -> ScheduleFragment()
-        else -> Fragment()
+        else -> RankingListFragment()
     }
 }

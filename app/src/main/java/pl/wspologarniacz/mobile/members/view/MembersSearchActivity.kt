@@ -46,7 +46,6 @@ class MembersSearchActivity : DaggerAppCompatActivity() {
         window.enterTransition = Slide()
         setContentView(R.layout.search_members_activity)
 
-
         searchedMembers.adapter = adapter
         appBar.setupDynamicShadowWhenScroll(searchedMembers)
 

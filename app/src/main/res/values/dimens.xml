@@ -3,9 +3,18 @@
     <dimen name="margin_m">8dp</dimen>
     <dimen name="margin_l">16dp</dimen>
     <dimen name="margin_s">4dp</dimen>
+
+
     <dimen name="text_size_button">14sp</dimen>
+
+
     <dimen name="corner_radius_button">18dp</dimen>
     <dimen name="fab_padding_size">72dp</dimen>
     <dimen name="avatar_size">48dp</dimen>
     <dimen name="schedule_users_height">32dp</dimen>
+
+    <dimen name="first_place_avatar_size">64dp</dimen>
+    <dimen name="second_place_avatar_size">54dp</dimen>
+    <dimen name="third_place_avatar_size">48dp</dimen>
+    <dimen name="ranking_standing_item_height">48dp</dimen>
 </resources>

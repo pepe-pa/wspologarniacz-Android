@@ -18,4 +18,6 @@
     <string name="member_waiting_text">OCZEKUJE \nNA PRZYJECIE</string>
     <string name="member_pending_text">WYSLANO \nZAPROSZENIE</string>
     <string name="modified_format_text">Zmodyfikowano %1$s przez &lt;b>%2$s&lt;/b></string>
+    <string name="search_member_hint_text">Wpisz nazwę użytkownika lub email</string>
+    <string name="search_member_invite_text">Zapros:</string>
 </resources>

@@ -12,11 +12,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.coroutines.experimental.Deferred
 import pl.wspologarniacz.mobile.R
+import pl.wspologarniacz.mobile.members.repository.model.Member
 
 fun View.show() {
     visibility = View.VISIBLE
@@ -90,4 +94,17 @@ fun Activity.hideKeyboard() {
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+
+fun LinearLayout.addMembersToLayout(members: List<Member>) {
+
+    val membersSize = context.resources.getDimensionPixelSize(R.dimen.schedule_users_height)
+
+    removeAllViews()
+    members.forEach {
+        val avatarImageView = LayoutInflater.from(context).inflate(R.layout.small_avatar_layout, this, false) as ImageView
+        avatarImageView.load(it.avatar, RequestOptions.circleCropTransform())
+        addView(avatarImageView, membersSize, membersSize)
+    }
 }

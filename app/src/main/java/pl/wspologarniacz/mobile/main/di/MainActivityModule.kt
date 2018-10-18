@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import pl.wspologarniacz.mobile.members.di.MembersListModule
 import pl.wspologarniacz.mobile.members.view.MembersFragment
+import pl.wspologarniacz.mobile.ranking.di.RankingsListModule
+import pl.wspologarniacz.mobile.ranking.view.RankingListFragment
 import pl.wspologarniacz.mobile.schedule.di.ScheduleModule
 import pl.wspologarniacz.mobile.schedule.view.ScheduleFragment
 import pl.wspologarniacz.mobile.tasks.di.TaskListModule
@@ -21,4 +23,6 @@ abstract class MainActivityModule {
     @ContributesAndroidInjector(modules = [ScheduleModule::class])
     abstract fun scheduleFragment(): ScheduleFragment
 
+    @ContributesAndroidInjector(modules = [RankingsListModule::class])
+    abstract fun rankingsListFragment(): RankingListFragment
 }
