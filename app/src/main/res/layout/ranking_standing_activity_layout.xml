@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/firstPlacePoints"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/confetti" />
+
+
+            <ImageView
+                android:id="@+id/firstPlaceImageView"
+                android:layout_width="@dimen/first_place_avatar_size"
+                android:layout_height="@dimen/first_place_avatar_size"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginTop="@dimen/margin_l"
+                android:layout_marginEnd="@dimen/margin_m"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/firstMedal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_first"
+                app:layout_constraintEnd_toEndOf="@+id/firstPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/firstPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/firstPlaceImageView" />
+
+            <ImageView
+                android:id="@+id/secondPlaceImageView"
+                android:layout_width="@dimen/second_place_avatar_size"
+                android:layout_height="@dimen/second_place_avatar_size"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginEnd="@dimen/margin_m"
+                app:layout_constraintBottom_toBottomOf="@+id/firstPlaceImageView"
+                app:layout_constraintEnd_toStartOf="@+id/firstPlaceImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+            <ImageView
+                android:id="@+id/secondMedal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_second"
+                app:layout_constraintEnd_toEndOf="@+id/secondPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/secondPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/secondPlaceImageView" />
+
+            <ImageView
+                android:id="@+id/thirdPlaceImageView"
+                android:layout_width="@dimen/third_place_avatar_size"
+                android:layout_height="@dimen/third_place_avatar_size"
+                android:layout_marginStart="@dimen/margin_m"
+                android:layout_marginEnd="@dimen/margin_m"
+                app:layout_constraintBottom_toBottomOf="@+id/firstPlaceImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/firstPlaceImageView"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+            <ImageView
+                android:id="@+id/thirdMedal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_third"
+                app:layout_constraintEnd_toEndOf="@+id/thirdPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/thirdPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/thirdPlaceImageView" />
+
+            <TextView
+                android:id="@+id/firstPlaceUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                app:layout_constraintEnd_toEndOf="@+id/firstPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/firstPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/firstMedal"
+                tools:text="Leader" />
+
+            <TextView
+                android:id="@+id/firstPlacePoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:paddingBottom="@dimen/margin_l"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="@+id/firstPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/firstPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/firstPlaceUsername"
+                tools:text="500" />
+
+            <TextView
+                android:id="@+id/secondPlaceUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                app:layout_constraintEnd_toEndOf="@+id/secondPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/secondPlaceImageView"
+                app:layout_constraintTop_toTopOf="@+id/firstPlaceUsername"
+                tools:text="2nd" />
+
+            <TextView
+                android:id="@+id/secondPlacePoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="@+id/secondPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/secondPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/secondPlaceUsername"
+                tools:text="300" />
+
+            <TextView
+                android:id="@+id/thirdPlaceUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                app:layout_constraintEnd_toEndOf="@+id/thirdPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/thirdPlaceImageView"
+                app:layout_constraintTop_toTopOf="@+id/firstPlaceUsername"
+                tools:text="3rd" />
+
+            <TextView
+                android:id="@+id/thirdPlacePoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="@+id/thirdPlaceImageView"
+                app:layout_constraintStart_toStartOf="@+id/thirdPlaceImageView"
+                app:layout_constraintTop_toBottomOf="@+id/thirdPlaceUsername"
+                tools:text="100" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rankingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listItem="@layout/ranking_standing_item-layout" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

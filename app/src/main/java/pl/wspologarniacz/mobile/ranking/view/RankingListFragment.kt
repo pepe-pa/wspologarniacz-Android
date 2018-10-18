@@ -1,5 +1,6 @@
 package pl.wspologarniacz.mobile.ranking.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -48,5 +49,6 @@ class RankingListFragment : DaggerFragment() {
 
     private fun onItemClicked(ranking: Ranking) {
         Log.i(TAG, "$ranking")
+        startActivity(Intent(activity, RankingStandingActivity::class.java))
     }
 }

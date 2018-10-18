@@ -32,6 +32,7 @@
             android:label="@string/title_activity_main"></activity>
         <activity android:name=".group.view.GroupActivity" />
         <activity android:name=".members.view.MembersSearchActivity" />
+        <activity android:name=".ranking.view.RankingStandingActivity" />
     </application>
 
 </manifest>
